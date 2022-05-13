@@ -1,0 +1,1 @@
+web: java -Xms150M -jar target/productapp-api-0.0.1-SNAPSHOT.jar
