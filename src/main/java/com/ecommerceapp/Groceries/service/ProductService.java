@@ -48,7 +48,7 @@ import com.ecommerceapp.Groceries.model.Product;
 
 		public void update(Integer id, Product product) throws ValidationException {
 			try {
-				product.setId(id);
+				//product.setId(id);
 				productRepository.save(product);
 
 			} catch (Exception e) {
