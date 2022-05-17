@@ -13,9 +13,45 @@ import lombok.ToString;
 @Entity
 @ToString
 @Table(name = "menu_list")
-@Data
+//@Data
 public class Menus {
 
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getFoodName() {
+		return foodName;
+	}
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public String getFoodType() {
+		return foodType;
+	}
+	public void setFoodType(String foodType) {
+		this.foodType = foodType;
+	}
+	public String getFoodStyle() {
+		return foodStyle;
+	}
+	public void setFoodStyle(String foodStyle) {
+		this.foodStyle = foodStyle;
+	}
+	public String getFoodImages() {
+		return foodImages;
+	}
+	public void setFoodImages(String foodImages) {
+		this.foodImages = foodImages;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
