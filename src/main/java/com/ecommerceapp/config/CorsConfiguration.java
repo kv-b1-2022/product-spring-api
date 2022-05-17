@@ -1,4 +1,4 @@
-package com.ecommerceapp.hotelapp.config;
+package com.ecommerceapp.config;
 
 
 	import org.springframework.context.annotation.Configuration;
@@ -6,10 +6,9 @@ package com.ecommerceapp.hotelapp.config;
 	import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 	@Configuration
-		public class CorsConfiguration extends WebMvcConfigurationSupport {  
-		    @Override
+		public class CorsConfiguration {  
 		    public void addCorsMappings(CorsRegistry registry) {
-		        registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("*");
+		        registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
 		        //.allowCredentials(true);
 		    }
 		}
