@@ -25,12 +25,21 @@ public class ProductPrice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // AUTOINCREMENT
 	@Column(name = "id")
 	private Integer id;
+
+	@Column(name = "product_id")
 	private Integer productId;
+	
+	@Column(name = "product_name")
+	private String productName;
+
+	@Column(name = "price")
 	private Integer price;
+
+	@Column(name = "start_date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate startDate;
-//	private Date date;
-//	private Date s=date.valueOf(startDate);
+
+	@Column(name = "end_date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate EndDate;
 
