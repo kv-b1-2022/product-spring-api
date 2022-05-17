@@ -14,10 +14,6 @@ import com.ecommerceapp.productprice.dto.MessageDTO;
 import com.ecommerceapp.productprice.model.ProductPrice;
 import com.ecommerceapp.productprice.service.ProductPriceService;
 
-
-
-
-
 @RestController
 public class ProductPriceController {
 	@Autowired
@@ -26,7 +22,7 @@ public class ProductPriceController {
 	@PostMapping("productprice/save")
 	public ResponseEntity<?> addStock(@RequestBody ProductPrice productprice) {
 		try {
-			
+
 			productpriceService.save(productprice);
 			MessageDTO message = new MessageDTO("success");
 			return new ResponseEntity<>(message, HttpStatus.OK);
