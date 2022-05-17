@@ -10,7 +10,7 @@ public class ProductappApiApplication {
 		SpringApplication.run(ProductappApiApplication.class, args);
 
 		System.out.println("Success");
-		System.out.println("running..");
+		System.out.println("running...");
 	}
 
 }
