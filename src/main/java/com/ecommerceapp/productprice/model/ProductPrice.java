@@ -32,6 +32,6 @@ public class ProductPrice {
 //	private Date date;
 //	private Date s=date.valueOf(startDate);
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate endDate;
+	private LocalDate EndDate;
 
 }

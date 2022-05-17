@@ -11,7 +11,7 @@ import com.ecommerceapp.productprice.model.ProductPrice;
 
 public interface ProductPriceRepository extends JpaRepository<ProductPrice, Integer> {
 
-	@Query("select p from com.ecommerceapp.productprice.model.ProductPrice p where p.productId = ?1 and p.endDate is null")
+	@Query("select p from com.ecommerceapp.productprice.model.ProductPrice p where p.productId = ?1 and p.EndDate is null")
 	Optional<ProductPrice> findByProductId(Integer productId);
 
 }
