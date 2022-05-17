@@ -6,7 +6,8 @@ package com.ecommerceapp.config;
 	import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 	@Configuration
-		public class CorsConfiguration {  
+		public class CorsConfiguration extends WebMvcConfigurationSupport { 
+		@Override
 		    public void addCorsMappings(CorsRegistry registry) {
 		        registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
 		        //.allowCredentials(true);
