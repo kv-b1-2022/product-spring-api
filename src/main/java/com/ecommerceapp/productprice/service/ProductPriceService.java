@@ -39,14 +39,8 @@ public class ProductPriceService {
 		}
 
 	}
-	public List<ProductPrice> findAll() throws Exception {
-		List<ProductPrice> listProductPrice = null;
-		try {
-			listProductPrice = productpriceRepository.findAll();
-
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}
+	public List<ProductPrice> findProducts() throws Exception {
+		List<ProductPrice> listProductPrice =productpriceRepository.findAll();
 		return listProductPrice;
 }
 }

@@ -2,10 +2,12 @@ package com.ecommerceapp.productprice.validation;
 
 import java.time.LocalDate;
 
+import org.springframework.stereotype.Component;
+
 import com.ecommerceapp.productprice.model.ProductPrice;
 
 
-
+@Component
 public class PriceValidation {
 
 	public static void validate(ProductPrice productprice) throws Exception {

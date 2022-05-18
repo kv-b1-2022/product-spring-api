@@ -34,14 +34,16 @@ public class ProductPriceController {
 	}
 
 	@GetMapping("productprice/list")
-	public List<ProductPrice> findAll() {
+	public ResponseEntity findAllProducts() {
 		List<ProductPrice> listProductPrice = null;
 		try {
 
-			listProductPrice = productpriceService.findAll();
+			listProductPrice = productpriceService.findProducts();
+			return new ResponseEntity<>(listProductPrice,HttpStatus.OK);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			MessageDTO message = new MessageDTO(e.getMessage());
+			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
 		}
 		return listProductPrice;
 	}
