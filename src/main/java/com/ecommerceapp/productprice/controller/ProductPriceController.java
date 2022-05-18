@@ -14,10 +14,6 @@ import com.ecommerceapp.productprice.dto.MessageDTO;
 import com.ecommerceapp.productprice.model.ProductPrice;
 import com.ecommerceapp.productprice.service.ProductPriceService;
 
-
-
-
-
 @RestController
 public class ProductPriceController {
 	@Autowired
@@ -26,7 +22,7 @@ public class ProductPriceController {
 	@PostMapping("productprice/save")
 	public ResponseEntity<?> addStock(@RequestBody ProductPrice productprice) {
 		try {
-			
+
 			productpriceService.save(productprice);
 			MessageDTO message = new MessageDTO("success");
 			return new ResponseEntity<>(message, HttpStatus.OK);
@@ -38,14 +34,16 @@ public class ProductPriceController {
 	}
 
 	@GetMapping("productprice/list")
-	public List<ProductPrice> findAll() {
+	public ResponseEntity findAllProducts() {
 		List<ProductPrice> listProductPrice = null;
 		try {
 
-			listProductPrice = productpriceService.findAll();
+			listProductPrice = productpriceService.findProducts();
+			return new ResponseEntity<>(listProductPrice,HttpStatus.OK);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			MessageDTO message = new MessageDTO(e.getMessage());
+			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
 		}
 		return listProductPrice;
 	}

@@ -18,20 +18,20 @@ public class ProductPriceService {
 	@Autowired
 	ProductPriceRepository productpriceRepository;
 
-	public void save(ProductPrice producrprice) throws Exception {
+	public void save(ProductPrice productprice) throws Exception {
 		try {
-			PriceValidation.validate(producrprice);
-			Optional<ProductPrice> pPrice = productpriceRepository.findByProductId(producrprice.getProductId());
+			PriceValidation.validate(productprice);
+			Optional<ProductPrice> pPrice = productpriceRepository.findByProductId(productprice.getProductId());
 		
 			if (pPrice.isPresent()) {
 				System.out.println(pPrice);
 				ProductPrice oldProductPrice = pPrice.get();
-				oldProductPrice.setEndDate(producrprice.getStartDate().minusDays(1));
+				oldProductPrice.setEndDate(productprice.getStartDate().minusDays(1));
 				productpriceRepository.save(oldProductPrice);
 
 			}
 
-			productpriceRepository.save(producrprice);
+			productpriceRepository.save(productprice);
 
 		} catch (Exception e) {
 
@@ -39,14 +39,8 @@ public class ProductPriceService {
 		}
 
 	}
-	public List<ProductPrice> findAll() throws Exception {
-		List<ProductPrice> listProductPrice = null;
-		try {
-			listProductPrice = productpriceRepository.findAll();
-
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}
+	public List<ProductPrice> findProducts() throws Exception {
+		List<ProductPrice> listProductPrice =productpriceRepository.findAll();
 		return listProductPrice;
 }
 }
