@@ -34,7 +34,7 @@ public class ProductPriceController {
 	}
 
 	@GetMapping("productprice/list")
-	public ResponseEntity findAllProducts() {
+	public ResponseEntity<?> findAllProducts() {
 		List<ProductPrice> listProductPrice = null;
 		try {
 
@@ -45,7 +45,7 @@ public class ProductPriceController {
 			MessageDTO message = new MessageDTO(e.getMessage());
 			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
 		}
-		return listProductPrice;
+		
 	}
 
 }

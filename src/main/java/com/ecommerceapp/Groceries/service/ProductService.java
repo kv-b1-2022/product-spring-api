@@ -9,7 +9,6 @@ package com.ecommerceapp.Groceries.service;
 	import org.springframework.stereotype.Service;
 
 import com.ecommerceapp.Groceries.dao.ProductRepository;
-import com.ecommerceapp.Groceries.exception.ValidationException;
 import com.ecommerceapp.Groceries.model.Product;
 
 	
@@ -19,40 +18,40 @@ import com.ecommerceapp.Groceries.model.Product;
 		@Autowired
 		ProductRepository productRepository;
 
-		public void save(Product product) throws ValidationException {
+		public void save(Product product) throws Exception {
 			try {
 				productRepository.save(product);
 			} catch (Exception e) {
-				throw new ValidationException(e.getMessage());
+				throw new Exception(e.getMessage());
 			}
 		}
 
-		public List<Product> findAll() throws ValidationException {
+		public List<Product> findAll() throws Exception {
 			List<Product> listProduct = null;
 			try {
 				listProduct = productRepository.findAll();
 
 			} catch (Exception e) {
-				throw new ValidationException(e.getMessage());
+				throw new Exception(e.getMessage());
 			}
 			return listProduct;
 		}
 
-		public void deleteById(Integer id) throws ValidationException {
+		public void deleteById(Integer id) throws Exception {
 			try {
 				productRepository.deleteById(id);
 			} catch (Exception e) {
-				throw new ValidationException(e.getMessage());
+				throw new Exception(e.getMessage());
 			}
 		}
 
-		public void update(Integer id, Product product) throws ValidationException {
+		public void update(Integer id, Product product) throws Exception {
 			try {
 				//product.setId(id);
 				productRepository.save(product);
 
 			} catch (Exception e) {
-				throw new ValidationException(e.getMessage());
+				throw new Exception(e.getMessage());
 			}
 		}
 	public Product findById(Integer id) {
